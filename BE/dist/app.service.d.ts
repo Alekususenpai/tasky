@@ -1,3 +1,7 @@
+import { Repository } from 'typeorm';
+import { User } from './user.entity';
 export declare class AppService {
-    getHello(): string;
+    private usersRepository;
+    constructor(usersRepository: Repository<User>);
+    getHello(): Promise<string>;
 }

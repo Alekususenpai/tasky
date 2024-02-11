@@ -13,12 +13,12 @@ exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 let AppController = class AppController {
+    appService;
     constructor(appService) {
         this.appService = appService;
     }
-    getHello() {
-        console.log('HERE');
-        return this.appService.getHello();
+    async getHello() {
+        return await this.appService.getHello();
     }
 };
 exports.AppController = AppController;
@@ -26,7 +26,7 @@ __decorate([
     (0, common_1.Get)('/hello'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", Promise)
 ], AppController.prototype, "getHello", null);
 exports.AppController = AppController = __decorate([
     (0, common_1.Controller)(),
