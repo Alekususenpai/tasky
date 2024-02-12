@@ -7,6 +7,7 @@ import { User } from './user.entity';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -18,11 +19,9 @@ import { User } from './user.entity';
       synchronize: true,
       logging: true,
     }),
-    ConfigModule.forRoot(),
     TypeOrmModule.forFeature([User]),
   ],
   controllers: [AppController],
   providers: [AppService],
-
 })
-export class AppModule { }
+export class AppModule {}

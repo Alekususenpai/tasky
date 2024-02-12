@@ -24,6 +24,7 @@ let AppService = class AppService {
     }
     async getHello() {
         const response = await this.usersRepository.save({ name: 'Jane Doe' });
+        console.log(response);
         return 'Hello';
     }
 };

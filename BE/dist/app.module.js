@@ -19,6 +19,7 @@ exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
+            config_1.ConfigModule.forRoot(),
             typeorm_1.TypeOrmModule.forRoot({
                 type: 'postgres',
                 host: 'localhost',
@@ -30,7 +31,6 @@ exports.AppModule = AppModule = __decorate([
                 synchronize: true,
                 logging: true,
             }),
-            config_1.ConfigModule.forRoot(),
             typeorm_1.TypeOrmModule.forFeature([user_entity_1.User]),
         ],
         controllers: [app_controller_1.AppController],

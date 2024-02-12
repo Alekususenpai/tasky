@@ -10,9 +10,9 @@ export class AppService {
     private usersRepository: Repository<User>,
   ) {}
 
-  
   async getHello(): Promise<string> {
-    const response = await this.usersRepository.save({name: 'Jane Doe'})
-    return 'Hello'
+    const response = await this.usersRepository.save({ name: 'Jane Doe' });
+    console.log(response);
+    return 'Hello';
   }
 }
