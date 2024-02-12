@@ -5,7 +5,8 @@
 node_modules/
 
 # Ignore build output
-/dist
+dist
+**/*d.ts
 
 # Ignore logs
 /logs
@@ -20,3 +21,6 @@ node_modules/
 # Ignore OS specific files
 .DS_Store
 Thumbs.db
+
+# Rest
+FETCH_HEAD
