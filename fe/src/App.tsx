@@ -1,7 +1,9 @@
-
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Box, Button, Text, Input } from '@chakra-ui/react'
+import { Outlet } from 'react-router-dom'
+import { ChakraProvider } from '@chakra-ui/react'
+import Header from './Components/Header'
 
 function App() {
   const [names, setNames] = useState([])
@@ -18,7 +20,6 @@ function App() {
     setInputName(e.target.value)
   }
 
-
   const handleClick1 = async () => {
     const response = await axios.get("http://localhost:3000/name")
     setNames(response.data)
@@ -34,17 +35,19 @@ function App() {
   }
 
   return (
-    <Box>
+    <ChakraProvider>
+      <Header />
+      <Outlet />
       <Input placeholder='type something' onChange={handleChange} />
       <Box>Hello there Frontend</Box>
       <Button colorScheme='purple' onClick={handleClick1}>get</Button>
       <Button colorScheme='green' onClick={handleClick2}>post</Button>
       {
-        names.map((name) => {
+        names.map((name: any) => {
           return <Text>{name}</Text>
         })
       }
-    </Box>
+    </ChakraProvider>
   );
 }
 
